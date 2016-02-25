@@ -62,7 +62,7 @@
             </span>
         </div>-->
         <span class="copyright">
-                <span class="fondo-copyright">Actualizado al 21/02/2016</span>
+                <span class="fondo-copyright">Actualizado al 25/02/2016</span>
         </span>
         <div class="row">
          <div class="col-lg-12">
@@ -138,6 +138,15 @@
                            <label> <input type="radio" name="prestamo" id="Si" value="1">Si
                            </label>
                        </div>
+                       <label>Tiene servicio doméstico</label>
+                        <div class="radio">
+                         <label> <input type="radio" name="servicioDomestico" id="No" value="0" checked>No
+                         </label>
+                        </div>
+                        <div class="radio">
+                           <label> <input type="radio" name="servicioDomestico" id="Si" value="1">Si
+                           </label>
+                       </div> 
                         <div class="form-group" align="right">
                            <button id="calcular" type="button" class="btn btn-danger">Calcular</button>
                        </div>
@@ -204,6 +213,12 @@
        <div class="panel-body">
             <div class="row">
                 <div class="col-lg-12">
+                    
+                    <div class="form-group">
+                      <label>Mínimo no imponible NETO (equivale a $30000 brutos para casado con 2 hijos)</label>
+                    <p class="text-danger"  id="MNINetoMensual"></p>
+                    </div>
+                    
                     <div class="form-group">
                       <label>Hijo</label>
                     <p class="text-danger"  id="importeAnualPorHijo"></p>
@@ -215,12 +230,16 @@
                         <p class="text-danger"  id="importeAnualPorConyuge"></p>
                     </div>    
                     <div class="form-group">
-                        <label>Familiares a cargo (no hay confirmación oficial de este importe, tomo el importe igual al del "Hijo")</label>
+                        <label>Familiares a cargo</label>
                         <p class="text-danger"  id="importeAnualOtros"></p>
                     </div>      
                     <div class="form-group">
                         <label>Intereses préstamo hipotecario</label>
                         <p class="text-danger"  id="importeAnualPrestamo"></p>
+                    </div> 
+                    <div class="form-group">
+                        <label>Servicio doméstico</label>
+                        <p class="text-danger"  id="importeAnualServicioDomestico"></p>
                     </div> 
                     <div class="form-group">
                         <label><a href="tablaEscalas.html" > Tabla de escalas </a></label>

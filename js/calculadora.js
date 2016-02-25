@@ -25,17 +25,20 @@ var CONYUGE = 39778;
 var HIJO = 19889;
 var FAMILIAR_A_CARGO = 19889;
 var INTERESES_PRESTAMO_HIPOTECARIO = 20000;
+var SERVICIO_DOMESTICO = MINIMO_NO_IMPONIBLE;
 
 /*Con cristina*/
 /*var CONYUGE = 17280;
 var HIJO = 8640;
 var FAMILIAR_A_CARGO = 6840;
+var MINIMO_NO_IMPONIBLE_MENSUAL = 6938;
 */
 function calcular() {
 	
 	var sueldoBruto = $('#sueldoBruto').val();
 	var conyuge = $("input[name='conyuge']:checked").val();
         var prestamo = $("input[name='prestamo']:checked").val();
+        var servicioDomestico = $("input[name='servicioDomestico']:checked").val();
 
 	var familiaresComponent = document.getElementById("familiares");
 	var cantFamiliares = familiaresComponent.options[familiaresComponent.selectedIndex].value;
@@ -48,7 +51,11 @@ function calcular() {
 	var sueldoNetoAnual = sueldoNeto * 13;
 	
 	//var MNI_anual = MINIMO_NO_IMPONIBLE+ADICIONAL_4TA_CATEGORIA+CONYUGE*conyuge+HIJO*cantHijos;
-        var MNI_anual = MINIMO_NO_IMPONIBLE_MENSUAL*13+CONYUGE*conyuge+HIJO*cantHijos+FAMILIAR_A_CARGO*cantFamiliares+INTERESES_PRESTAMO_HIPOTECARIO*prestamo;
+        var MNI_anual = MINIMO_NO_IMPONIBLE_MENSUAL*13+
+                        CONYUGE*conyuge+HIJO*cantHijos+
+                        FAMILIAR_A_CARGO*cantFamiliares+                        
+                        INTERESES_PRESTAMO_HIPOTECARIO*prestamo+
+                        SERVICIO_DOMESTICO*servicioDomestico;
         
 	var MNI_mensual = MNI_anual / 13;
 	
@@ -123,10 +130,13 @@ function calcularValorEscala(numeroEscala,montoImponibleAnual)
 
 function onLoad()
 {
+        $("#MNINetoMensual").text( "$" + Math.ceil(MINIMO_NO_IMPONIBLE_MENSUAL) + ".00" );
         $("#importeAnualPorHijo").text( "$" + Math.ceil(HIJO) + ".00"  );
         $("#importeAnualPorConyuge").text( "$" + Math.ceil(CONYUGE) + ".00" );
         $("#importeAnualOtros").text( "$" + Math.ceil(FAMILIAR_A_CARGO) + ".00" );
         $("#importeAnualPrestamo").text( "$" + Math.ceil(INTERESES_PRESTAMO_HIPOTECARIO) + ".00" );
+        $("#importeAnualServicioDomestico").text( "$" + Math.ceil(SERVICIO_DOMESTICO) + ".00" );
+        
         
     
 }
